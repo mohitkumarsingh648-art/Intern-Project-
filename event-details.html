@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - AIpreneurs Global Challenge 2025</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+        <script>
+        (function(){
+            function tryLoad(list){
+                if(!list.length) return;
+                var href = list.shift();
+                var l = document.createElement('link');
+                l.rel = 'stylesheet';
+                l.href = href;
+                l.onload = function(){ console.log('stylesheet loaded:', href); };
+                l.onerror = function(){ console.warn('failed to load stylesheet:', href); tryLoad(list); };
+                document.head.appendChild(l);
+            }
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var repoBase = parts.length>0 ? ('/' + parts[0] + '/') : '/';
+            var candidates = [
+                '../assets/css/styles.css',
+                './assets/css/styles.css',
+                repoBase + 'assets/css/styles.css',
+                window.location.origin + repoBase + 'assets/css/styles.css'
+            ];
+            tryLoad(candidates);
+        })();
+        </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="../index.html" class="navbar-brand">
+            <span class="navbar-brand-text">AIpreneurs <span class="navbar-brand-accent">Global</span></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="event-details.html" class="nav-link active">Event Details</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <a href="student-login.html" class="btn btn-secondary btn-sm">Student Login</a>
+            <a href="admin-login.html" class="btn btn-primary btn-sm">Admin</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="margin-top: 70px; min-height: 50vh;">
+        <div class="hero-content">
+            <h1>Complete Event Details</h1>
+            <p>Everything you need to know about AIpreneurs Global Challenge 2025.</p>
+        </div>
+    </section>
+
+    <!-- Event Overview -->
+    <section style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Event Overview</h2>
+                <p>Key information about the AIpreneurs Global Challenge 2025</p>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 0.5rem;">Event Duration</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 600;">January 2025 - August 2025</p>
+                    <p>Eight month global competition with multiple stages and intensive acceleration period.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 0.5rem;">Registration Fee</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 600;">Free to Apply</p>
+                    <p>No registration fees for applicants. Selected participants will receive complimentary access to all program resources and events.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 0.5rem;">Prize Pool</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 600;">USD 500,000+</p>
+                    <p>Substantial prizes, grants, and investment opportunities distributed among winning startups and innovators.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 0.5rem;">Participants Expected</h4>
+                    <p style="font-size: 1.1rem; color: var(--text-dark); font-weight: 600;">500+ Startups</p>
+                    <p>Startups and innovators from 150+ countries competing across multiple categories.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Stages -->
+    <section style="background: var(--off-white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Challenge Stages</h2>
+                <p>Multi-phase progression through AIpreneurs Global Challenge 2025</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 15 - March 31, 2025</div>
+                        <div class="timeline-title">Stage 1: Application & Screening</div>
+                        <div class="timeline-description">Interested startups and innovators submit applications online. Our selection committee reviews applications based on innovation, market potential, team quality, and alignment with challenge goals.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">April 1 - April 30, 2025</div>
+                        <div class="timeline-title">Stage 2: Participant Selection</div>
+                        <div class="timeline-description">Top 100 startups selected through rigorous evaluation. Selected teams announce publicly. Orientation program and onboarding process begins.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 1 - May 31, 2025</div>
+                        <div class="timeline-title">Stage 3: Mentorship Program</div>
+                        <div class="timeline-description">Participants paired with industry mentors. Weekly mentorship sessions, expert talks, and workshops on business development, technology, and fundraising.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 1 - June 15, 2025</div>
+                        <div class="timeline-title">Stage 4: Bootcamp Intensive</div>
+                        <div class="timeline-description">Two-week intensive acceleration program. Immersive workshops, networking sessions, investor presentations, and product development sprints.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 1 - July 15, 2025</div>
+                        <div class="timeline-title">Stage 5: Pitching Round</div>
+                        <div class="timeline-description">Top 50 teams pitch to investor panel. Presentations to venture capital firms, angel investors, corporate innovation teams, and media representatives.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">August 1 - August 30, 2025</div>
+                        <div class="timeline-title">Stage 6: Grand Finale & Awards</div>
+                        <div class="timeline-description">Final competition with top 10 teams. Grand ceremony with award presentation, winner announcement, and partnership opportunities.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Requirements -->
+    <section style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Eligibility Requirements</h2>
+                <p>Criteria for AIpreneurs Global Challenge participation</p>
+            </div>
+            <div class="grid grid-2">
+                <div>
+                    <h3>Startup Requirements</h3>
+                    <ul style="list-style: none; color: var(--text-light); line-height: 2.2;">
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Must be legally registered as a company or organization
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Operating for less than 5 years from date of establishment
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Core focus on artificial intelligence and machine learning
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Minimum team of 2 full-time members
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Viable and scalable product or solution
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Clear market opportunity and commercialization strategy
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Individual Innovator Requirements</h3>
+                    <ul style="list-style: none; color: var(--text-light); line-height: 2.2;">
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Must be 18 years of age or older
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Demonstrated expertise in AI, machine learning, or related field
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Existing prototype or proof of concept
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Ability to form or join a founding team
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Commitment to commercialize the innovation
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">+</span>
+                            Willingness to complete full challenge duration
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Judging Criteria -->
+    <section style="background: var(--off-white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Judging Criteria</h2>
+                <p>How AIpreneurs evaluates startups and innovations</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Innovation & Technology</h4>
+                    <p>Evaluation of technological advancement, uniqueness of AI approach, and novelty of solution in the market.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Market Potential</h4>
+                    <p>Assessment of addressable market size, growth opportunity, and commercial viability of the solution.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Team Quality</h4>
+                    <p>Evaluation of founding team's experience, expertise, complementary skills, and execution capability.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Scalability</h4>
+                    <p>Assessment of the solution's ability to scale, business model sustainability, and path to profitability.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Impact & Ethics</h4>
+                    <p>Evaluation of positive societal impact, ethical considerations, and alignment with sustainable development goals.</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Execution & Traction</h4>
+                    <p>Assessment of demonstrated progress, customer traction, partnerships, and proof of concept validation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Package -->
+    <section style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Benefits Package</h2>
+                <p>What selected participants receive</p>
+            </div>
+            <div class="grid grid-2">
+                <div style="display: flex; gap: 1.5rem;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">M</div>
+                    </div>
+                    <div>
+                        <h4>Expert Mentorship</h4>
+                        <p>Personal mentors from leading companies and serial entrepreneurs. Weekly guidance sessions and strategic advice.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">W</div>
+                    </div>
+                    <div>
+                        <h4>Workshops & Training</h4>
+                        <p>Intensive training programs covering fundraising, product development, marketing, and legal aspects of startups.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">N</div>
+                    </div>
+                    <div>
+                        <h4>Network Access</h4>
+                        <p>Direct access to investors, corporate partners, customers, and fellow entrepreneurs in the global AI ecosystem.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">R</div>
+                    </div>
+                    <div>
+                        <h4>Resources</h4>
+                        <p>Access to cloud computing resources, software licenses, development tools, and technical infrastructure.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">P</div>
+                    </div>
+                    <div>
+                        <h4>Pitch Platform</h4>
+                        <p>Opportunity to pitch to venture capitalists, angel investors, and corporate innovation teams interested in funding.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <div style="flex-shrink: 0;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.2rem;">P</div>
+                    </div>
+                    <div>
+                        <h4>PR & Publicity</h4>
+                        <p>Media coverage, press releases, and global exposure through partner networks and communication channels.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prize Distribution -->
+    <section style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 3rem;">
+                <h2 style="color: var(--white);">Prize Distribution</h2>
+                <p style="color: rgba(255,255,255,0.9);">Total Prize Pool: USD 500,000+</p>
+            </div>
+            <div class="grid grid-3">
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 2rem; border-radius: 12px; text-align: center; color: white;">
+                    <h3 style="color: var(--accent-light); font-size: 2.5rem; margin-bottom: 0.5rem;">1st Place</h3>
+                    <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">USD 150,000</p>
+                    <p style="color: rgba(255,255,255,0.9);">Seed funding, dedicated investor connections, and premium mentorship package.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 2rem; border-radius: 12px; text-align: center; color: white;">
+                    <h3 style="color: var(--accent-light); font-size: 2.5rem; margin-bottom: 0.5rem;">2nd Place</h3>
+                    <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">USD 100,000</p>
+                    <p style="color: rgba(255,255,255,0.9);">Seed funding, investor network access, and extended mentorship support.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); padding: 2rem; border-radius: 12px; text-align: center; color: white;">
+                    <h3 style="color: var(--accent-light); font-size: 2.5rem; margin-bottom: 0.5rem;">3rd Place</h3>
+                    <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">USD 75,000</p>
+                    <p style="color: rgba(255,255,255,0.9);">Seed funding, investor connections, and comprehensive mentorship.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; color: white;">
+                <p style="color: rgba(255,255,255,0.9); margin-bottom: 0.5rem;">Plus additional USD 175,000 distributed among category winners and recognition awards</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Application Process</h2>
+                <p>Simple steps to apply for AIpreneurs Global Challenge 2025</p>
+            </div>
+            <div class="grid grid-3">
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem;">1</div>
+                    <h4>Create Account</h4>
+                    <p>Sign up on our platform using email or social login. Complete your profile information.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem;">2</div>
+                    <h4>Fill Application</h4>
+                    <p>Complete the detailed application form with information about your startup or innovation.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem;">3</div>
+                    <h4>Submit Documents</h4>
+                    <p>Upload pitch deck, business plan, product demo, and supporting documents.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem;">4</div>
+                    <h4>Review Stage</h4>
+                    <p>Our evaluation committee reviews your application thoroughly.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem;">5</div>
+                    <h4>Notification</h4>
+                    <p>Receive notification of acceptance status via email.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #1E5FFF, #00D4FF); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.5rem;">6</div>
+                    <h4>Onboarding</h4>
+                    <p>Selected participants proceed to orientation and program commencement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));">
+        <div class="container">
+            <div style="text-align: center; color: var(--white);">
+                <h2 style="color: var(--white);">Ready To Apply?</h2>
+                <p style="color: rgba(255,255,255,0.9); margin: 1rem auto; max-width: 600px;">Submit your application now and join hundreds of innovative startups competing in AIpreneurs Global Challenge 2025.</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
+                    <a href="student-login.html" class="btn btn-primary btn-lg">Apply Now</a>
+                    <a href="contact.html" class="btn btn-secondary btn-lg">Get Help</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="event-details.html" class="footer-link">Event Details</a>
+                    <a href="#" class="footer-link">Partners</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">FAQ</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Code of Conduct</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Follow us on social media</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="Twitter">tw</a>
+                        <a href="#" class="social-link" title="Facebook">f</a>
+                        <a href="#" class="social-link" title="Instagram">ig</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright 2025 AIpreneurs Global Challenge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

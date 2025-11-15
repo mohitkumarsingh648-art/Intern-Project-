@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - AIpreneurs Global Challenge 2025</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+        <script>
+        (function(){
+            function tryLoad(list){
+                if(!list.length) return;
+                var href = list.shift();
+                var l = document.createElement('link');
+                l.rel = 'stylesheet';
+                l.href = href;
+                l.onload = function(){ console.log('stylesheet loaded:', href); };
+                l.onerror = function(){ console.warn('failed to load stylesheet:', href); tryLoad(list); };
+                document.head.appendChild(l);
+            }
+            var parts = window.location.pathname.split('/').filter(Boolean);
+            var repoBase = parts.length>0 ? ('/' + parts[0] + '/') : '/';
+            var candidates = [
+                '../assets/css/styles.css',
+                './assets/css/styles.css',
+                repoBase + 'assets/css/styles.css',
+                window.location.origin + repoBase + 'assets/css/styles.css'
+            ];
+            tryLoad(candidates);
+        })();
+        </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="../index.html" class="navbar-brand">
+            <span class="navbar-brand-text">AIpreneurs <span class="navbar-brand-accent">Global</span></span>
+        </a>
+        <ul class="nav-menu">
+            <li><a href="../index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="event-details.html" class="nav-link">Event Details</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <a href="student-login.html" class="btn btn-secondary btn-sm">Student Login</a>
+            <a href="admin-login.html" class="btn btn-primary btn-sm">Admin</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="margin-top: 70px; min-height: 50vh;">
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <p>Have questions? We are here to help. Reach out to our team anytime.</p>
+        </div>
+    </section>
+
+    <!-- Contact Info & Form -->
+    <section style="background: var(--white);">
+        <div class="container">
+            <div class="grid grid-2" style="gap: 3rem;">
+                <div>
+                    <h2 style="margin-bottom: 2rem;">Contact Information</h2>
+                    
+                    <div style="margin-bottom: 2.5rem;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Email</h4>
+                        <p style="color: var(--text-light);">
+                            <a href="mailto:support@aipreneurs.global" style="color: var(--primary-blue); text-decoration: none;">support@aipreneurs.global</a><br>
+                            <a href="mailto:partnerships@aipreneurs.global" style="color: var(--primary-blue); text-decoration: none;">partnerships@aipreneurs.global</a>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 2.5rem;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Phone</h4>
+                        <p style="color: var(--text-light);">
+                            <a href="tel:+1234567890" style="color: var(--primary-blue); text-decoration: none;">+1 (234) 567-890</a><br>
+                            <a href="tel:+4433221100" style="color: var(--primary-blue); text-decoration: none;">+44 (3322) 1100</a>
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 2.5rem;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Headquarters</h4>
+                        <p style="color: var(--text-light);">
+                            AIpreneurs Global Challenge<br>
+                            Innovation Hub, San Francisco<br>
+                            California, USA 94105
+                        </p>
+                    </div>
+
+                    <div style="margin-bottom: 2.5rem;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Regional Offices</h4>
+                        <p style="color: var(--text-light);">
+                            <strong>Europe:</strong> Berlin, Germany<br>
+                            <strong>Asia:</strong> Singapore<br>
+                            <strong>India:</strong> Bangalore<br>
+                            <strong>Americas:</strong> Toronto, Canada
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" title="LinkedIn" style="background: var(--primary-blue); color: white;">in</a>
+                            <a href="#" class="social-link" title="Twitter" style="background: var(--primary-blue); color: white;">tw</a>
+                            <a href="#" class="social-link" title="Facebook" style="background: var(--primary-blue); color: white;">f</a>
+                            <a href="#" class="social-link" title="Instagram" style="background: var(--primary-blue); color: white;">ig</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 style="margin-bottom: 2rem;">Send us a Message</h2>
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select a category</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="sponsorship">Sponsorship</option>
+                                <option value="application">Application Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell us more about your inquiry..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg" style="align-self: flex-start;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments -->
+    <section style="background: var(--off-white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Our Teams</h2>
+                <p>Reach out to the specific department for your inquiry</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">General Support</h4>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">For general questions and inquiries</p>
+                    <a href="mailto:support@aipreneurs.global" style="color: var(--primary-blue); font-weight: 600; text-decoration: none;">support@aipreneurs.global</a>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Sponsorship & Partnerships</h4>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">For partnership and sponsorship opportunities</p>
+                    <a href="mailto:partnerships@aipreneurs.global" style="color: var(--primary-blue); font-weight: 600; text-decoration: none;">partnerships@aipreneurs.global</a>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Investor Relations</h4>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">For investment and funding inquiries</p>
+                    <a href="mailto:investors@aipreneurs.global" style="color: var(--primary-blue); font-weight: 600; text-decoration: none;">investors@aipreneurs.global</a>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Media & Press</h4>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">For press releases and media inquiries</p>
+                    <a href="mailto:media@aipreneurs.global" style="color: var(--primary-blue); font-weight: 600; text-decoration: none;">media@aipreneurs.global</a>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Event Coordination</h4>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">For event-related questions</p>
+                    <a href="mailto:events@aipreneurs.global" style="color: var(--primary-blue); font-weight: 600; text-decoration: none;">events@aipreneurs.global</a>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Technical Issues</h4>
+                    <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">For website and system technical issues</p>
+                    <a href="mailto:tech@aipreneurs.global" style="color: var(--primary-blue); font-weight: 600; text-decoration: none;">tech@aipreneurs.global</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">When is the application deadline?</h4>
+                    <p style="color: var(--text-light);">The application deadline is March 31, 2025. Selected participants will be announced by April 30, 2025.</p>
+                </div>
+                <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">Is there a registration fee?</h4>
+                    <p style="color: var(--text-light);">No, there is no registration fee. Applications are completely free, and selected participants receive complimentary access to all program resources.</p>
+                </div>
+                <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">Can individual innovators apply?</h4>
+                    <p style="color: var(--text-light);">Yes, individual innovators can apply. They must be 18 years or older and have a viable AI prototype or idea with a commitment to commercialize it.</p>
+                </div>
+                <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">What are the requirements for startups?</h4>
+                    <p style="color: var(--text-light);">Startups must be registered companies, operating for less than 5 years, with at least 2 team members and a core focus on AI solutions.</p>
+                </div>
+                <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 2rem;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">How long is the program?</h4>
+                    <p style="color: var(--text-light);">The full program runs from January 2025 to August 2025, approximately 8 months with various stages.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">What is the prize pool?</h4>
+                    <p style="color: var(--text-light);">The total prize pool is USD 500,000+, with first place receiving USD 150,000, second place USD 100,000, and third place USD 75,000.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-blue));">
+        <div class="container">
+            <div style="text-align: center; color: var(--white);">
+                <h2 style="color: var(--white);">Still Have Questions?</h2>
+                <p style="color: rgba(255,255,255,0.9); margin: 1rem auto; max-width: 600px;">Our team is here to help. Feel free to reach out via email, phone, or the contact form above.</p>
+                <a href="student-login.html" class="btn btn-primary btn-lg mt-3">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="event-details.html" class="footer-link">Event Details</a>
+                    <a href="#" class="footer-link">Partners</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Documentation</a>
+                    <a href="#" class="footer-link">FAQ</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Code of Conduct</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Follow us on social media</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="Twitter">tw</a>
+                        <a href="#" class="social-link" title="Facebook">f</a>
+                        <a href="#" class="social-link" title="Instagram">ig</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright 2025 AIpreneurs Global Challenge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

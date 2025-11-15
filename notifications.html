@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - AIpreneurs Global Challenge 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #001F5C;
+            --primary-blue: #0052CC;
+            --secondary-blue: #0066FF;
+            --accent-cyan: #00A8E8;
+            --success: #059669;
+            --success-light: #10B981;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border-color: #E5E7EB;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', 'DM Sans', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-btn:hover {
+            background: #F0F4FF;
+            border-color: var(--primary-blue);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .notification-item {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .notification-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .notification-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.75rem;
+        }
+
+        .notification-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .notification-time {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .notification-message {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .mark-read-btn {
+            display: inline-block;
+            margin-top: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(0, 82, 204, 0.1);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .mark-read-btn:hover {
+            background: rgba(0, 82, 204, 0.2);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-text {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="javascript:history.back()" class="back-btn">← Back</a>
+            <div class="page-title">🔔 Notifications</div>
+            <div class="page-subtitle">Stay updated with the latest challenge announcements</div>
+        </div>
+
+        <div id="notificationsContainer">
+            <div class="notification-item">
+                <div class="notification-header">
+                    <div class="notification-title">Phase 2 Registration Extended</div>
+                    <div class="notification-time">2 hours ago</div>
+                </div>
+                <div class="notification-message">
+                    Good news! Registration deadline has been extended to Nov 20th. Make sure all team members are verified before the new deadline.
+                </div>
+                <button class="mark-read-btn" onclick="markAsRead(this)">Mark as Read</button>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-header">
+                    <div class="notification-title">Mentorship Sessions Available</div>
+                    <div class="notification-time">1 day ago</div>
+                </div>
+                <div class="notification-message">
+                    Book your 1-on-1 mentorship session with industry experts. Limited slots available - first come, first served. Sessions start from Nov 18th.
+                </div>
+                <button class="mark-read-btn" onclick="markAsRead(this)">Mark as Read</button>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-header">
+                    <div class="notification-title">Challenge Rules & Guidelines Updated</div>
+                    <div class="notification-time">3 days ago</div>
+                </div>
+                <div class="notification-message">
+                    Important updates to submission requirements and evaluation criteria. Please review the updated guidelines document before submitting.
+                </div>
+                <button class="mark-read-btn" onclick="markAsRead(this)">Mark as Read</button>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-header">
+                    <div class="notification-title">Week 1 Live Q&A Session</div>
+                    <div class="notification-time">5 days ago</div>
+                </div>
+                <div class="notification-message">
+                    Join us for an interactive Q&A with the organizing team. Discuss challenges and get expert advice. Recording available on demand.
+                </div>
+                <button class="mark-read-btn" onclick="markAsRead(this)">Mark as Read</button>
+            </div>
+
+            <div class="notification-item">
+                <div class="notification-header">
+                    <div class="notification-title">Your Submission Has Been Reviewed</div>
+                    <div class="notification-time">1 week ago</div>
+                </div>
+                <div class="notification-message">
+                    Your Business Plan submission has been successfully reviewed. Please check your dashboard for detailed feedback from the judge panel.
+                </div>
+                <button class="mark-read-btn" onclick="markAsRead(this)">Mark as Read</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function markAsRead(button) {
+            button.textContent = '✓ Read';
+            button.style.opacity = '0.5';
+            button.disabled = true;
+        }
+    </script>
+</body>
+</html>

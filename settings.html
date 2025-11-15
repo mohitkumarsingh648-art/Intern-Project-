@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - AIpreneurs Global Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #001F5C;
+            --primary-blue: #0052CC;
+            --accent-cyan: #00A8E8;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border-color: #E5E7EB;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .settings-section {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .settings-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+
+        .settings-label {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .settings-label-title {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .settings-label-desc {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 28px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent-cyan);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .select-dropdown {
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            background: white;
+            color: var(--text-dark);
+            min-width: 150px;
+        }
+
+        .select-dropdown:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
+        }
+
+        .save-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .success-msg {
+            padding: 15px;
+            background: #D1FAE5;
+            color: #065F46;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            border-left: 4px solid var(--success);
+        }
+
+        .success-msg.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .settings-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚙️ Settings</h1>
+            <button class="back-btn" onclick="goBack()">← Back</button>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="settings-section">
+            <div class="section-title">🔔 Notification Preferences</div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Email Notifications</div>
+                    <div class="settings-label-desc">Receive updates via email</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="emailNotif" checked onchange="saveSetting('emailNotif')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Submission Reminders</div>
+                    <div class="settings-label-desc">Get reminded about upcoming deadlines</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="submissionReminder" checked onchange="saveSetting('submissionReminder')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Evaluation Notifications</div>
+                    <div class="settings-label-desc">Get notified when your work is evaluated</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="evalNotif" checked onchange="saveSetting('evalNotif')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Display Settings -->
+        <div class="settings-section">
+            <div class="section-title">🎨 Display Preferences</div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Theme</div>
+                    <div class="settings-label-desc">Choose your preferred color theme</div>
+                </div>
+                <select class="select-dropdown" id="themeSelect" onchange="saveSetting('theme')">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Dashboard View</div>
+                    <div class="settings-label-desc">Choose your dashboard layout</div>
+                </div>
+                <select class="select-dropdown" id="dashboardView" onchange="saveSetting('dashboardView')">
+                    <option value="compact">Compact</option>
+                    <option value="standard">Standard</option>
+                    <option value="detailed">Detailed</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Privacy Settings -->
+        <div class="settings-section">
+            <div class="section-title">🔒 Privacy & Security</div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Profile Visibility</div>
+                    <div class="settings-label-desc">Show your profile to other participants</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="profileVisibility" checked onchange="saveSetting('profileVisibility')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Show Email Address</div>
+                    <div class="settings-label-desc">Display email on your profile</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="showEmail" onchange="saveSetting('showEmail')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Account Settings -->
+        <div class="settings-section">
+            <div class="section-title">👤 Account Settings</div>
+            
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Two-Factor Authentication</div>
+                    <div class="settings-label-desc">Add an extra layer of security</div>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="twoFactor" onchange="saveSetting('twoFactor')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="settings-item">
+                <div class="settings-label">
+                    <div class="settings-label-title">Login Activity</div>
+                    <div class="settings-label-desc">Monitor your account logins</div>
+                </div>
+                <button class="select-dropdown" onclick="alert('Login activity: Last logged in Nov 15, 2025 at 4:13 PM')" style="cursor: pointer; background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan)); color: white; border: none; padding: 10px 20px;">View Activity</button>
+            </div>
+        </div>
+
+        <button class="save-btn" onclick="saveAllSettings()">💾 Save All Settings</button>
+        
+        <div class="success-msg" id="successMsg">
+            ✅ Settings saved successfully!
+        </div>
+    </div>
+
+    <script>
+        function saveSetting(key) {
+            const settings = JSON.parse(localStorage.getItem('userSettings') || '{}');
+            
+            if (key === 'theme') {
+                settings.theme = document.getElementById('themeSelect').value;
+            } else if (key === 'dashboardView') {
+                settings.dashboardView = document.getElementById('dashboardView').value;
+            } else {
+                const element = document.getElementById(key);
+                if (element) {
+                    settings[key] = element.checked;
+                }
+            }
+            
+            localStorage.setItem('userSettings', JSON.stringify(settings));
+        }
+
+        function loadSettings() {
+            const settings = JSON.parse(localStorage.getItem('userSettings') || '{}');
+            
+            if (settings.emailNotif !== undefined) document.getElementById('emailNotif').checked = settings.emailNotif;
+            if (settings.submissionReminder !== undefined) document.getElementById('submissionReminder').checked = settings.submissionReminder;
+            if (settings.evalNotif !== undefined) document.getElementById('evalNotif').checked = settings.evalNotif;
+            if (settings.profileVisibility !== undefined) document.getElementById('profileVisibility').checked = settings.profileVisibility;
+            if (settings.showEmail !== undefined) document.getElementById('showEmail').checked = settings.showEmail;
+            if (settings.twoFactor !== undefined) document.getElementById('twoFactor').checked = settings.twoFactor;
+            if (settings.theme) document.getElementById('themeSelect').value = settings.theme;
+            if (settings.dashboardView) document.getElementById('dashboardView').value = settings.dashboardView;
+        }
+
+        function saveAllSettings() {
+            saveSetting('emailNotif');
+            saveSetting('submissionReminder');
+            saveSetting('evalNotif');
+            saveSetting('profileVisibility');
+            saveSetting('showEmail');
+            saveSetting('twoFactor');
+            saveSetting('theme');
+            saveSetting('dashboardView');
+            
+            const successMsg = document.getElementById('successMsg');
+            successMsg.classList.add('show');
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 3000);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+        });
+    </script>
+</body>
+</html>

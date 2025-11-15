@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Announcement - Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #001F5C;
+            --primary-blue: #0052CC;
+            --accent-cyan: #00A8E8;
+            --success: #10B981;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border-color: #E5E7EB;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-cyan));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: #D1D5DB;
+        }
+
+        .success-msg {
+            padding: 15px;
+            background: #D1FAE5;
+            color: #065F46;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+            border-left: 4px solid var(--success);
+        }
+
+        .success-msg.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .form-card {
+                padding: 20px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📢 Create Announcement</h1>
+            <button class="back-btn" onclick="goBack()">← Back</button>
+        </div>
+
+        <div class="form-card">
+            <form id="announcementForm">
+                <div class="form-group">
+                    <label for="title">Announcement Title *</label>
+                    <input type="text" id="title" placeholder="Enter announcement title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" required>
+                        <option value="">-- Select Category --</option>
+                        <option value="important">Important</option>
+                        <option value="update">Update</option>
+                        <option value="reminder">Reminder</option>
+                        <option value="event">Event</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="priority">Priority Level *</label>
+                    <select id="priority" required>
+                        <option value="">-- Select Priority --</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="audience">Target Audience *</label>
+                    <select id="audience" required>
+                        <option value="">-- Select Audience --</option>
+                        <option value="all">All Users</option>
+                        <option value="students">Students</option>
+                        <option value="volunteers">Volunteers</option>
+                        <option value="jury">Jury Members</option>
+                        <option value="coordinators">Coordinators</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Announcement Content *</label>
+                    <textarea id="content" placeholder="Enter your announcement message..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="expiryDate">Expiry Date (Optional)</label>
+                    <input type="date" id="expiryDate">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">📢 Publish Announcement</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Clear Form</button>
+                </div>
+
+                <div class="success-msg" id="successMsg">
+                    ✅ Announcement published successfully and will be sent to all users!
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('announcementForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const announcement = {
+                id: Date.now(),
+                title: document.getElementById('title').value,
+                category: document.getElementById('category').value,
+                priority: document.getElementById('priority').value,
+                audience: document.getElementById('audience').value,
+                content: document.getElementById('content').value,
+                expiryDate: document.getElementById('expiryDate').value,
+                publishedAt: new Date().toLocaleString(),
+                status: 'published'
+            };
+
+            // Save to localStorage
+            const announcements = JSON.parse(localStorage.getItem('announcements') || '[]');
+            announcements.push(announcement);
+            localStorage.setItem('announcements', JSON.stringify(announcements));
+
+            // Show success message
+            const successMsg = document.getElementById('successMsg');
+            successMsg.classList.add('show');
+
+            // Reset form
+            setTimeout(() => {
+                resetForm();
+                successMsg.classList.remove('show');
+                window.history.back();
+            }, 2000);
+        });
+
+        function resetForm() {
+            document.getElementById('announcementForm').reset();
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

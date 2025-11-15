@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - AIpreneurs Global Challenge 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #001F5C;
+            --primary-blue: #0052CC;
+            --secondary-blue: #0066FF;
+            --accent-cyan: #00A8E8;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border-color: #E5E7EB;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', 'DM Sans', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-btn:hover {
+            background: #F0F4FF;
+            border-color: var(--primary-blue);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 82, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            border: 1.5px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            border-color: var(--primary-blue);
+        }
+
+        .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10B981;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+            border-left: 4px solid #10B981;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="javascript:history.back()" class="back-btn">← Back</a>
+            <div class="page-title">👤 Edit Profile</div>
+            <div class="page-subtitle">Update your personal information</div>
+        </div>
+
+        <div id="successMessage" class="success-message">
+            ✓ Profile updated successfully!
+        </div>
+
+        <div class="form-card">
+            <form id="profileForm" onsubmit="handleProfileUpdate(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" value="Arjun Sharma" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" value="arjun.sharma@university.edu" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" value="+91 98765 43210" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" value="India" required>
+                </div>
+
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" value="Bangalore" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Bio / About You</label>
+                    <textarea placeholder="Tell us about yourself and your startup idea...">Passionate entrepreneur with expertise in AI and machine learning. Leading a team focused on healthcare AI solutions.</textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleProfileUpdate(event) {
+            event.preventDefault();
+            
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+            
+            // Save to localStorage
+            const form = document.getElementById('profileForm');
+            const formData = new FormData(form);
+            localStorage.setItem('userProfile', JSON.stringify({
+                name: form.elements[0].value,
+                email: form.elements[1].value,
+                phone: form.elements[2].value,
+                country: form.elements[3].value,
+                city: form.elements[4].value,
+                bio: form.elements[5].value,
+                updatedAt: new Date().toLocaleString()
+            }));
+            
+            // Hide success message after 2 seconds
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+                goBack();
+            }, 2000);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Load existing profile data if available
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedProfile = localStorage.getItem('userProfile');
+            if (savedProfile) {
+                const profile = JSON.parse(savedProfile);
+                const form = document.getElementById('profileForm');
+                form.elements[0].value = profile.name || '';
+                form.elements[1].value = profile.email || '';
+                form.elements[2].value = profile.phone || '';
+                form.elements[3].value = profile.country || '';
+                form.elements[4].value = profile.city || '';
+                form.elements[5].value = profile.bio || '';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Submission - AIpreneurs Global Challenge 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #001F5C;
+            --primary-blue: #0052CC;
+            --secondary-blue: #0066FF;
+            --accent-cyan: #00A8E8;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border-color: #E5E7EB;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', 'DM Sans', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-btn:hover {
+            background: #F0F4FF;
+            border-color: var(--primary-blue);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .submission-info {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .review-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .star {
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+        }
+
+        .star.active {
+            color: #FFB800;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 82, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            border: 1.5px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            border-color: var(--primary-blue);
+        }
+
+        .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10B981;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+            border-left: 4px solid #10B981;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="javascript:history.back()" class="back-btn">← Back</a>
+            <div class="page-title">📋 Review Submission</div>
+        </div>
+
+        <div id="successMessage" class="success-message">
+            ✓ Review submitted successfully! Redirecting...
+        </div>
+
+        <div class="submission-info">
+            <div class="info-item">
+                <div class="info-label">Team Name</div>
+                <div class="info-value">TechVision AI Solutions</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Submission Type</div>
+                <div class="info-value">Business Plan</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Submitted Date</div>
+                <div class="info-value">Nov 15, 2025</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">File</div>
+                <div class="info-value">📄 business_plan.pdf</div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <form id="reviewForm" onsubmit="handleReviewSubmit(event)">
+                <div class="form-group">
+                    <label>Your Rating</label>
+                    <div class="rating-group" id="ratingGroup">
+                        <span class="star" data-rating="1" onclick="setRating(1)">★</span>
+                        <span class="star" data-rating="2" onclick="setRating(2)">★</span>
+                        <span class="star" data-rating="3" onclick="setRating(3)">★</span>
+                        <span class="star" data-rating="4" onclick="setRating(4)">★</span>
+                        <span class="star" data-rating="5" onclick="setRating(5)">★</span>
+                    </div>
+                    <input type="hidden" id="rating" value="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Evaluation Category</label>
+                    <select required>
+                        <option value="">-- Select category --</option>
+                        <option value="innovation">Innovation</option>
+                        <option value="market">Market Potential</option>
+                        <option value="team">Team Strength</option>
+                        <option value="execution">Execution Capability</option>
+                        <option value="overall">Overall Assessment</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Detailed Feedback</label>
+                    <textarea placeholder="Provide constructive feedback about this submission..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Recommendation</label>
+                    <select required>
+                        <option value="">-- Select recommendation --</option>
+                        <option value="accept">Accept - Recommend for Next Round</option>
+                        <option value="pending">Pending - Needs More Info</option>
+                        <option value="revise">Request Revision</option>
+                        <option value="reject">Not Recommended</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goBack()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentRating = 0;
+
+        function setRating(rating) {
+            currentRating = rating;
+            document.getElementById('rating').value = rating;
+            
+            const stars = document.querySelectorAll('.star');
+            stars.forEach(star => {
+                if (star.dataset.rating <= rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        function handleReviewSubmit(event) {
+            event.preventDefault();
+            
+            if (currentRating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+
+            // Save review to localStorage
+            const reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
+            reviews.push({
+                id: Date.now(),
+                teamName: 'TechVision AI Solutions',
+                rating: currentRating,
+                category: document.querySelector('select').value,
+                feedback: document.querySelector('textarea').value,
+                recommendation: document.querySelectorAll('select')[1].value,
+                submittedAt: new Date().toLocaleString()
+            });
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+
+            // Show success
+            document.getElementById('successMessage').classList.add('show');
+            
+            setTimeout(() => {
+                window.history.back();
+            }, 2000);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - AIpreneurs Global Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #001F5C;
+            --primary-blue: #0052CC;
+            --accent-cyan: #00A8E8;
+            --success: #10B981;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --border-color: #E5E7EB;
+            --bg-light: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .messages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .message-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .message-from {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 16px;
+        }
+
+        .message-time {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .message-subject {
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .message-preview {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.5;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .message-badge {
+            display: inline-block;
+            background: var(--accent-cyan);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-light);
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state h2 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .message-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💬 Messages</h1>
+            <button class="back-btn" onclick="goBack()">← Back</button>
+        </div>
+
+        <div id="messagesContainer"></div>
+    </div>
+
+    <script>
+        // Sample messages data
+        const messages = [
+            {
+                id: 1,
+                from: "Admin Team",
+                subject: "Challenge Guidelines Update",
+                preview: "Important updates regarding the submission guidelines for the 2025 challenge...",
+                timestamp: "2 hours ago",
+                status: "unread"
+            },
+            {
+                id: 2,
+                from: "Jury Coordinator",
+                subject: "Submission Received Confirmation",
+                preview: "We have successfully received your team's business plan submission. Thank you for participating...",
+                timestamp: "1 day ago",
+                status: "read"
+            },
+            {
+                id: 3,
+                from: "Support Team",
+                subject: "Account Verification",
+                preview: "Your account has been successfully verified. You can now access all features of the platform...",
+                timestamp: "3 days ago",
+                status: "read"
+            },
+            {
+                id: 4,
+                from: "Challenge Lead",
+                subject: "Webinar Recording Available",
+                preview: "The recording of last week's webinar on innovation and startups is now available...",
+                timestamp: "1 week ago",
+                status: "read"
+            },
+            {
+                id: 5,
+                from: "Volunteer Coordinator",
+                subject: "Thank You for Volunteering",
+                preview: "Thank you for your contribution to the AIpreneurs Global Challenge 2025. Your support means a lot...",
+                timestamp: "2 weeks ago",
+                status: "read"
+            }
+        ];
+
+        function renderMessages() {
+            const container = document.getElementById('messagesContainer');
+            
+            if (messages.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <h2>No Messages</h2>
+                        <p>You don't have any messages yet. Check back soon!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="messages-list">
+                    ${messages.map(msg => `
+                        <div class="message-card">
+                            <div class="message-header">
+                                <div class="message-from">${msg.from}</div>
+                                <div class="message-time">${msg.timestamp}</div>
+                            </div>
+                            <div class="message-subject">${msg.subject}</div>
+                            <div class="message-preview">${msg.preview}</div>
+                            ${msg.status === 'unread' ? '<span class="message-badge">NEW</span>' : ''}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMessages();
+        });
+    </script>
+</body>
+</html>

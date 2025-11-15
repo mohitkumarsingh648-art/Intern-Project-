@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - AIpreneurs Global Challenge 2025</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 0.5rem;">
+                    AIpreneurs <span style="color: var(--primary-blue);">Global</span>
+                </div>
+                <p style="color: var(--text-light);">Admin Portal</p>
+            </div>
+
+            <div class="auth-title">
+                <h2>Admin Login</h2>
+            </div>
+            <div class="auth-subtitle">
+                Access the administrative dashboard to manage the challenge
+            </div>
+
+            <form id="adminLoginForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="form-group">
+                    <label for="email">Admin Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter admin email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter admin password" required>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-light);">
+                        <input type="checkbox" name="remember" style="cursor: pointer;">
+                        Remember me
+                    </label>
+                    <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Sign In</button>
+            </form>
+
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+                <p style="color: var(--text-light); margin-bottom: 1rem;">Need admin access?</p>
+                <a href="contact.html" class="btn btn-secondary" style="width: 100%; display: block;">Contact Support</a>
+            </div>
+
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <p style="color: var(--text-light); font-size: 0.85rem; margin-bottom: 1rem;">Other login options:</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="student-login.html" class="btn btn-secondary btn-sm" style="flex: 1;">Student</a>
+                    <a href="volunteer-login.html" class="btn btn-secondary btn-sm" style="flex: 1;">Volunteer</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1rem; background: var(--off-white); border-radius: 8px; text-align: center; font-size: 0.85rem; color: var(--text-light);">
+                <p>For demo purposes, use any email and password to access admin dashboard. This is a demo application.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/firebase-auth.js"></script>
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            // Demo: Store user info and redirect
+            localStorage.setItem('userRole', 'admin');
+            localStorage.setItem('userEmail', email);
+            window.location.href = '../dashboard/admin-dashboard.html';
+        });
+    </script>
+</body>
+</html>
